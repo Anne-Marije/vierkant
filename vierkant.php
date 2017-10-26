@@ -34,8 +34,8 @@
             case "schuinestreep":
                 $plaats = $multiplier;
             case "hyperbool":
-                $plaats= $multiplier;
-
+                $plaats = $multiplier;
+                $gerardHeeftNietsMeeTeMaken = array("x","o","x","x","x","o");
                 break;
             case "gespiegeldeSchuineStreep":
                 $plaats = 0;
@@ -57,7 +57,7 @@
                 case "schuinestreep":
                     $plaats--;
                 case "hyperbool":
-                    $plaats =$plaats - $i;
+                    $plaats = $plaats - $i;
                     break;
                 case "gespiegeldeSchuineStreep":
                     $plaats++;
@@ -73,7 +73,7 @@
 //            }
 
             for ($j = 0; $j <= $multiplier; $j++) {  // loop om charactersw  horisontaal neeer te zetten
-                if ($j == $plaats) {
+                if ($j != $plaats) {
                     echo "&nbsp";
                 } else {
                     echo $vulCharacter;  // dit is het fvul chracter 
