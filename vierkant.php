@@ -10,17 +10,18 @@
     <?php
     tekenVierkant("U", "kruis");
     tekenVierkant("q", "gespiegeldeSchuineStreep");
-    tekenVierkant("E", "schuinestreep");
-    tekenVierkant("F", "gespiegeldeSchuineStreep");
-    tekenVierkant("G", "schuinestreep");
-    tekenVierkant("H", "gespiegeldeSchuineStreep");
+    tekenVierkant("m", "schuinestreep");
+    tekenVierkant("F", "hyperbool");
+    
+//    tekenVierkant("G", "schuinestreep");
+//    tekenVierkant("H", "gespiegeldeSchuineStreep");
 
     function tekenVierkant($vulCharacter, $figuurkeuze) {
 //    $vulCharacter = "u";
         $regel = "";
         $plaats2 = 0;
         $plaats = 0;
-        $multiplier = 50;
+        $multiplier = 100;
         $teetje = "T";
 //$bovensteRegel = "________________________________________________________";
         $bovensteRegel = "<br>" . str_repeat($teetje, $multiplier + 2);
@@ -63,6 +64,7 @@
             switch ($figuurkeuze) {
                 case "schuinestreep":
                     $plaats--;
+                    break;
                 case "hyperbool":
                     $plaats = $plaats - $i;
                     break;
