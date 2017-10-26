@@ -13,7 +13,11 @@
 
 
     <?php
-    $vulCharacter = "u";
+    
+    tekenVierkant("U");
+    
+    function tekenVierkant($vulCharacter){
+//    $vulCharacter = "u";
     $regel = "";
     $multiplier = 20;
     $teetje = "T";
@@ -36,13 +40,18 @@
             if ($j == $plaats) {
                 echo "&nbsp";
             } else {
-                echo"o";  // dit is het fvul chracter 
+                echo $vulCharacter;  // dit is het fvul chracter 
             }
         }
         echo $teetje;
     }
     $ondersteRegel = "<br>" . str_repeat($teetje, $multiplier + 2);
-    echo $ondersteRegel
+    echo $ondersteRegel;
+    }
+    
+    
+            
+            
     ?>
 
 </html>
