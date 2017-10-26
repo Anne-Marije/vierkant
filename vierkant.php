@@ -8,7 +8,7 @@
         </style>
     </head>
     <?php
-    tekenVierkant("U", "schuinestreep");
+    tekenVierkant("U", "kruis");
     tekenVierkant("q", "gespiegeldeSchuineStreep");
     tekenVierkant("E", "schuinestreep");
     tekenVierkant("F", "gespiegeldeSchuineStreep");
@@ -18,6 +18,7 @@
     function tekenVierkant($vulCharacter, $figuurkeuze) {
 //    $vulCharacter = "u";
         $regel = "";
+        $plaats2 = 0;
         $plaats = 0;
         $multiplier = 50;
         $teetje = "T";
@@ -35,10 +36,16 @@
                 $plaats = $multiplier;
             case "hyperbool":
                 $plaats = $multiplier;
-                $gerardHeeftNietsMeeTeMaken = array("x","o","x","x","x","o");
+                $gerardHeeftNietsMeeTeMaken = array("x", "o", "x", "x", "x", "o");
                 break;
             case "gespiegeldeSchuineStreep":
                 $plaats = 0;
+                break;
+            case "kruis":
+                $plaats = 0;
+                $plaats2 = $multiplier;
+
+                break;
 
             default:
                 break;
@@ -61,7 +68,12 @@
                     break;
                 case "gespiegeldeSchuineStreep":
                     $plaats++;
+                    break;
+                case "kruis":
+                    $plaats++;
+                    $plaats2--;
 
+                    break;
                 default:
                     break;
             }
@@ -73,10 +85,22 @@
 //            }
 
             for ($j = 0; $j <= $multiplier; $j++) {  // loop om charactersw  horisontaal neeer te zetten
-                if ($j != $plaats) {
-                    echo "&nbsp";
+                if ($figuurkeuze == "kruis") {
+                    if ($j == $plaats || $j == $plaats2) {
+                        echo $vulCharacter;
+                    }else {
+                        echo "&nbsp";
+                        
+                    }
+                    
+                    
                 } else {
-                    echo $vulCharacter;  // dit is het fvul chracter 
+                    if ($j != $plaats) {
+//                if ($j <= $plaats and $j > $plaats + 8) {
+                        echo "&nbsp";
+                    } else {
+                        echo $vulCharacter;  // dit is het fvul chracter 
+                    }
                 }
             }
             echo $teetje;
