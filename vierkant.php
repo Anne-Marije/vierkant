@@ -7,14 +7,15 @@
             }
         </style>
     </head>
-
-
-
-
-
     <?php
     
     tekenVierkant("U");
+    tekenVierkant("q");
+    tekenVierkant("E");
+    tekenVierkant("F");
+    tekenVierkant("G");
+    tekenVierkant("H");
+    
     
     function tekenVierkant($vulCharacter){
 //    $vulCharacter = "u";
@@ -22,7 +23,7 @@
     $multiplier = 20;
     $teetje = "T";
 //$bovensteRegel = "________________________________________________________";
-    $bovensteRegel = str_repeat($teetje, $multiplier + 2);
+    $bovensteRegel = "<br>".str_repeat($teetje, $multiplier + 2);
 
 
 //        echo "<table>  {border: 1px solid black;}<tr><th>oooooooooooooooooooooooooooooooooooooooo</th></tr></table>"
@@ -30,12 +31,12 @@
 //
 //        "-----------------------------------------------";
     echo $bovensteRegel;
-     $plaats = 0;
+     $plaats = $multiplier;
     for ($i = 0; $i <= $multiplier; $i++) {    // loops vertikaal
 //    echo $i . "<br>";
         echo "<br>" . $teetje;
        
-       $plaats++;
+       $plaats--;
         for ($j = 0; $j <= $multiplier; $j++) {  // loop om charactersw  horisontaal neeer te zetten
             if ($j == $plaats) {
                 echo "&nbsp";
