@@ -8,16 +8,17 @@
         </style>
     </head>
     <?php
-    tekenVierkant("U","windows");
-    tekenVierkant("q","unis");
-    tekenVierkant("E","windows");
-    tekenVierkant("F","unis");
-    tekenVierkant("G","windows");
-    tekenVierkant("H","unis");
+    tekenVierkant("U","schuinestreep");
+    tekenVierkant("q","gespiegeldeSchuineStreep");
+    tekenVierkant("E","schuinestreep");
+    tekenVierkant("F","gespiegeldeSchuineStreep");
+    tekenVierkant("G","schuinestreep");
+    tekenVierkant("H","gespiegeldeSchuineStreep");
 
-    function tekenVierkant($vulCharacter, $richting) {
+    function tekenVierkant($vulCharacter, $figuurkeuze) {
 //    $vulCharacter = "u";
         $regel = "";
+        $plaats=0;
         $multiplier = 20;
         $teetje = "T";
 //$bovensteRegel = "________________________________________________________";
@@ -29,20 +30,46 @@
 //
 //        "-----------------------------------------------";
         echo $bovensteRegel;
-        if ($richting == "windows") {
-            $plaats = $multiplier;
-        } else {
-            $plaats = 0;
+        switch ($figuurkeuze) {
+            case "schuinestreep":
+                $plaats = $multiplier;
+
+
+                break;
+            case "gespiegeldeSchuineStreep":
+                $plaats = 0;
+
+            default:
+                break;
         }
+//        if ($richting == "windows") {
+//            $plaats = $multiplier;
+//        } else {
+//            $plaats = 0;
+//        }
 
         for ($i = 0; $i <= $multiplier; $i++) {    // loops vertikaal
 //    echo $i . "<br>";
             echo "<br>" . $teetje;
-            if ($richting == "windows") {
+            
+            switch ($figuurkeuze) {
+            case "schuinestreep":
                 $plaats--;
-            } else {
+
+
+                break;
+            case "gespiegeldeSchuineStreep":
                 $plaats++;
-            }
+
+            default:
+                break;
+        }
+            
+//            if ($richting == "windows") {
+//                $plaats--;
+//            } else {
+//                $plaats++;
+//            }
 
             for ($j = 0; $j <= $multiplier; $j++) {  // loop om charactersw  horisontaal neeer te zetten
                 if ($j == $plaats) {
