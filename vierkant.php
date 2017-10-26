@@ -8,18 +8,18 @@
         </style>
     </head>
     <?php
-    tekenVierkant("U","schuinestreep");
-    tekenVierkant("q","gespiegeldeSchuineStreep");
-    tekenVierkant("E","schuinestreep");
-    tekenVierkant("F","gespiegeldeSchuineStreep");
-    tekenVierkant("G","schuinestreep");
-    tekenVierkant("H","gespiegeldeSchuineStreep");
+    tekenVierkant("U", "schuinestreep");
+    tekenVierkant("q", "gespiegeldeSchuineStreep");
+    tekenVierkant("E", "schuinestreep");
+    tekenVierkant("F", "gespiegeldeSchuineStreep");
+    tekenVierkant("G", "schuinestreep");
+    tekenVierkant("H", "gespiegeldeSchuineStreep");
 
     function tekenVierkant($vulCharacter, $figuurkeuze) {
 //    $vulCharacter = "u";
         $regel = "";
-        $plaats=0;
-        $multiplier = 20;
+        $plaats = 0;
+        $multiplier = 50;
         $teetje = "T";
 //$bovensteRegel = "________________________________________________________";
         $bovensteRegel = "<br>" . str_repeat($teetje, $multiplier + 2);
@@ -33,7 +33,8 @@
         switch ($figuurkeuze) {
             case "schuinestreep":
                 $plaats = $multiplier;
-
+            case "hyperbool":
+                $plaats= $multiplier;
 
                 break;
             case "gespiegeldeSchuineStreep":
@@ -51,20 +52,20 @@
         for ($i = 0; $i <= $multiplier; $i++) {    // loops vertikaal
 //    echo $i . "<br>";
             echo "<br>" . $teetje;
-            
+
             switch ($figuurkeuze) {
-            case "schuinestreep":
-                $plaats--;
+                case "schuinestreep":
+                    $plaats--;
+                case "hyperbool":
+                    $plaats =$plaats - $i;
+                    break;
+                case "gespiegeldeSchuineStreep":
+                    $plaats++;
 
+                default:
+                    break;
+            }
 
-                break;
-            case "gespiegeldeSchuineStreep":
-                $plaats++;
-
-            default:
-                break;
-        }
-            
 //            if ($richting == "windows") {
 //                $plaats--;
 //            } else {
